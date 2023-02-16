@@ -4,18 +4,32 @@ using UnityEngine;
 
 public class FollowPlayerX : MonoBehaviour
 {
-    public GameObject plane;
-    private Vector3 offset = new Vector3(20, 1, 0);
+    public GameObject player;
+    private Vector3 position1 = new Vector3(0, 5, -7);
+    private Vector3 position2 = new Vector3(0,2, 1);
 
     // Start is called before the first frame update
     void Start()
     {
-
+      
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = plane.transform.position + offset;
+        
+        
+        if (Input.GetKey(KeyCode.Space))
+        {
+            transform.position = player.transform.position + position2;
+            transform.rotation = player.transform.rotation;
+            
+        }
+        else
+        {
+            transform.position = player.transform.position + position1;
+            transform.rotation = Quaternion.Euler(20, 0, 0);
+
+        }
     }
 }
